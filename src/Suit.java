@@ -13,6 +13,16 @@ public enum Suit {
         return suit;
     }
 
+    static String getValue(final int position) {
+        switch (position) {
+            case 0: return "s";
+            case 1: return "h";
+            case 2: return "d";
+            case 3: return "c";
+            default: throw new IllegalArgumentException("Illegal suit position passed!");
+        }
+    }
+
     static Suit transform(final char suit) {
         return Arrays.stream(values()).filter(s -> s.getSuit() == suit).findFirst()
                 .orElseThrow(IllegalArgumentException::new);

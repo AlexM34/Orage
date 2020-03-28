@@ -14,4 +14,8 @@ public class Card {
     Suit getSuit() {
         return suit;
     }
+
+    String getCard() {
+        return rank.getValue() + suit.getSuit();
+    }
 }

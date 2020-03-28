@@ -22,8 +22,13 @@ public enum Rank {
         return value;
     }
 
+    static String getValue(final int position) {
+        return Arrays.stream(values()).filter(r -> r.getPosition() == position).findAny()
+                .orElseThrow(IllegalArgumentException::new).getValue();
+    }
+
     static Rank transform(final String rank) {
-        return Arrays.stream(values()).filter(r -> r.getValue().equals(rank)).findFirst()
+        return Arrays.stream(values()).filter(r -> r.getValue().equals(rank)).findAny()
                 .orElseThrow(IllegalArgumentException::new);
     }
 }
